@@ -8,7 +8,10 @@ export const topLevelArrayType = {
     {
       type: 'object',
       title: 'Content',
-      fields: [{name: 'textContent', type: 'text'}, {name: 'imageContent', type: 'image'}],
+      fields: [
+        {name: 'textContent', type: 'text'},
+        {name: 'imageContent', type: 'image'}
+      ],
       preview: {select: {title: 'textContent'}}
     }
   ]
@@ -133,6 +136,7 @@ export default {
       description:
         'Enter a tag and press enter. Should result in an array of strings and should be possible to remove items',
       type: 'array',
+      readOnly: true,
       options: {layout: 'tags'},
       of: [{type: 'string'}]
     },

@@ -17,7 +17,8 @@
 
 .disabled {
   composes: root;
-  opacity: 0.5;
+  background: var(--input-bg-disabled);
+  color: var(--input-color-disabled);
 }
 
 .hasFocus {
@@ -55,6 +56,22 @@
       box-shadow: var(--input-box-shadow--invalid);
     }
   }
+
+  @nest &:disabled {
+    opacity: 1;
+    color: var(--input-color-disabled);
+    background: var(--input-bg-disabled);
+
+    @nest & + .functions {
+      color: var(--input-color-disabled);
+    }
+  }
+}
+
+.disabled:hover {
+  @nest & .arrow {
+    color: var(--input-color-disabled);
+  }
 }
 
 .selectContainer {
@@ -72,7 +89,6 @@
 
 .selectContainerDisabled {
   composes: selectContainer;
-  opacity: 0.5;
   color: var(--input-color);
 
   @nest &:hover {
@@ -124,9 +140,5 @@
 
   @nest & svg {
     color: inherit;
-  }
-
-  @nest .selectContainerDisabled & {
-    opacity: 0.5;
   }
 }
